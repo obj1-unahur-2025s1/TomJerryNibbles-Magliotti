@@ -1,6 +1,6 @@
 import tomJerryNibbles.*
 
-describe "Grupo de test" {
+describe "Grupo de test" { //el describe agrupa varios test 
 
   test "test 1" {
     assert.equals(100, 50+50)
@@ -12,6 +12,27 @@ describe "Grupo de test" {
 
   test "test 4" {
     assert.notThat(false)
+  }
+
+}
+
+describe "test de tom y sus victimas"{
+
+  test "al inicio tom tiene velocidad de 10 y energia 50" {
+    assert.equals(10, tom.velocidadMax()) //tambien podria poner en vez de 10, 5+50*0.1
+    assert.equals(50, tom.energia())
+  }
+  test "tom come a jerry y su velMax es 15.2 y su energia es 102"{
+    tom.comer(jerry) // esto es para actualizar al objeto tom para que el test me de correcto, sino nunca inicializo a tom y da mal
+    assert.equals(15.2, tom.velocidadMax())
+    assert.equals(102, tom.energia())
+  }
+
+  test "ahorra tom correo 24 metros y velMax sera 14 y energia 90"{
+    tom.comer(jerry)
+    tom.correr(24)
+    assert.equals(14, tom.velocidadMax())
+    assert.equals(90, tom.energia())
   }
 
 }
